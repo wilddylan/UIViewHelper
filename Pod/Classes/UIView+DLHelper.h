@@ -1,19 +1,31 @@
-# UIViewHelper
+//
+//  UIView+DLHelper.h
+//  Pods
+//
+//  Created by Dylan on 15/12/24.
+//
+//
 
-[![CI Status](http://img.shields.io/travis/Dylan/UIViewHelper.svg?style=flat)](https://travis-ci.org/Dylan/UIViewHelper)
-[![Version](https://img.shields.io/cocoapods/v/UIViewHelper.svg?style=flat)](http://cocoapods.org/pods/UIViewHelper)
-[![License](https://img.shields.io/cocoapods/l/UIViewHelper.svg?style=flat)](http://cocoapods.org/pods/UIViewHelper)
-[![Platform](https://img.shields.io/cocoapods/p/UIViewHelper.svg?style=flat)](http://cocoapods.org/pods/UIViewHelper)
+#import <UIKit/UIKit.h>
 
-## Usage
+typedef NS_ENUM(NSUInteger, DLBadgeStyle)
+{
+    DLBadgeStyleRedDot = 0,
+    DLBadgeStyleNumber,
+    DLBadgeStyleNew
+};
 
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
+typedef NS_ENUM(NSUInteger, DLBadgeAnimType)
+{
+    DLBadgeAnimTypeNone = 0,
+    DLBadgeAnimTypeScale,
+    DLBadgeAnimTypeShake,
+    DLBadgeAnimTypeBreathe
+};
 
-## Methods
+typedef void (^GestureActionBlock)(UIGestureRecognizer *gestureRecoginzer);
 
-- properties
-
-```objc
+@interface UIView (DLHelper)
 
 @property (nonatomic, assign) CGPoint origin;
 @property (nonatomic, assign) CGSize size;
@@ -31,22 +43,14 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 @property (nonatomic, readonly) CGRect contentBounds;
 @property (nonatomic, readonly) CGPoint contentCenter;
 
+- (void)shakeView;
+
 @property (nonatomic, strong) UILabel *badge;
 @property (nonatomic, strong) UIColor *badgeBgColor;
 @property (nonatomic, strong) UIColor *badgeTextColor;
 @property (nonatomic, assign) CGRect badgeFrame;
 @property (nonatomic, assign) DLBadgeAnimType aniType;
 
-```
-
-- methods
-
-```objc
-
-// shake View
-- (void)shakeView;
-
-// show bage
 - (void)showDLBadge;
 - (void)showDLBadgeWithStyle:(DLBadgeStyle)style value:(NSInteger)value animationType:(DLBadgeAnimType)aniType;
 - (void)clearBadge;
@@ -72,34 +76,12 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 - (void)changeAlpha:(float)newAlpha secs:(float)secs;
 - (void)pulse:(float)secs continuously:(BOOL)continuously;
 
-// add subview with animation
+//add subview
 - (void)addSubviewWithFadeAnimation:(UIView *)subview;
 
-// gesture with block
 - (void)addTapActionWithBlock:(GestureActionBlock)block;
 - (void)addLongPressActionWithBlock:(GestureActionBlock)block;
 
-// firstResponderViewController
 - (UIViewController *)firstResponderViewController;
 
-
-```
-
-## Requirements
-
-## Installation
-
-UIViewHelper is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
-```ruby
-pod "UIViewHelper"
-```
-
-## Author
-
-Dylan, 3664132@163.com
-
-## License
-
-UIViewHelper is available under the MIT license. See the LICENSE file for more info.
+@end

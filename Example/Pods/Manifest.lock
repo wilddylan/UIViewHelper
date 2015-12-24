@@ -1,0 +1,14 @@
+PODS:
+  - UIViewHelper (0.1.0)
+
+DEPENDENCIES:
+  - UIViewHelper (from `../`)
+
+EXTERNAL SOURCES:
+  UIViewHelper:
+    :path: ../
+
+SPEC CHECKSUMS:
+  UIViewHelper: a74dc2bb1594009423eba6e03ca30d525eb89e25
+
+COCOAPODS: 0.39.0.beta.5

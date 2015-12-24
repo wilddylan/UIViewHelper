@@ -1,0 +1,6 @@
+framework module UIViewHelper {
+  umbrella header "UIViewHelper-umbrella.h"
+
+  export *
+  module * { export * }
+}
