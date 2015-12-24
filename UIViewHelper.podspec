@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
 s.name             = "UIViewHelper"
-s.version          = "0.2.0"
+s.version          = "0.3.0"
 s.summary          = "UIView category"
 s.description      = "UIView category, bage, animation, add subView with animation."
 s.homepage         = "https://github.com/WildDylan/UIViewHelper"
